@@ -10,6 +10,12 @@ var moiz={
 	contents: ` <h1> Moiz Main Page !!</h1>
 	<p><a href="/"> Home </a> </p> `
 };
+var infodata={
+	titles:'Information',
+	date:'3 August',
+	contents: ` <h1> Information Page !!</h1>
+	<p><a href="/"> Home </a> </p> `
+};
 function binded(data)
 {
 	title=data.titles;
@@ -30,6 +36,7 @@ function binded(data)
 return templateHtml;
 }
 mz=binded(moiz);
+info=binded(infodata);
 app.get('/moiz',function (req,res){
   //res.sendFile(path.join(__dirname, 'ui', 'moiz.html'));
   res.send(mz);
@@ -38,6 +45,9 @@ app.get('/moiz',function (req,res){
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+app.get('/', function (req, res) {
+  res.send(info);
 });
 
 app.get('/ui/style.css', function (req, res) {
