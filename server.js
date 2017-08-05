@@ -4,6 +4,37 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
+var moiz={
+	titles:'Moiz',
+	date:'4 August',
+	contents: ` <h1> Moiz Main Page !!</h1>
+	<p><a href="/"> Home </a> </p> `
+};
+function binded(data)
+{
+	title=data.titles;
+	date=data.date;
+	content=data.contents;
+	var templateHtml=`<!DOCTYPE html>
+<html>
+<head>
+	<title>${title}</title>
+</head>
+<body>
+<p> Date : </p>
+<p>  ${date}</p>
+<h1> ${content}</h1>
+</body>
+</html>`;
+
+return templateHtml;
+}
+mz=binded(moiz);
+app.get('/moiz',function (req,res){
+  //res.sendFile(path.join(__dirname, 'ui', 'moiz.html'));
+  rs.send(mz);
+	
+});
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
