@@ -32,7 +32,7 @@ return templateHtml;
 mz=binded(moiz);
 app.get('/moiz',function (req,res){
   //res.sendFile(path.join(__dirname, 'ui', 'moiz.html'));
-  rs.send(mz);
+  res.send(mz);
 	
 });
 
